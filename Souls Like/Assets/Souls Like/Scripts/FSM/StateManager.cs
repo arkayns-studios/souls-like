@@ -42,6 +42,7 @@ namespace Arkayns.SL {
             State targetState = GetState (targetID);
             // run on enter actions
             currentState = targetState;
+            currentState.onEnter?.Invoke();
         } // ChangeState
 
         private State GetState (string targetID) {

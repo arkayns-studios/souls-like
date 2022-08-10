@@ -361,7 +361,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0209973, y: 1}
+    m_SensorSize: {x: 2.1256983, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -377,7 +377,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467060485}
-  m_LocalRotation: {x: 0.015974708, y: 0.000000021828354, z: -3.487461e-10, w: 0.99987245}
+  m_LocalRotation: {x: 0.015974697, y: 0.000000017137728, z: -2.7380498e-10, w: 0.99987245}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -438,7 +438,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0209973, y: 1}
+    m_SensorSize: {x: 2.1256983, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -454,7 +454,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484512865}
-  m_LocalRotation: {x: 0.034111224, y: 0.0000000015421675, z: -5.2635854e-11, w: 0.9994181}
+  m_LocalRotation: {x: 0.034111213, y: -0, z: -0, w: 0.9994181}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -820,8 +820,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.03411122, y: 0.0000000015446411, z: -5.2586394e-11, w: 0.999418}
-  m_LocalPosition: {x: 0, y: 2.5, z: -6}
+  m_LocalRotation: {x: 0.03411121, y: -4.8741202e-11, z: -1.6930091e-12, w: 0.999418}
+  m_LocalPosition: {x: 0, y: 4.1, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1972488452}
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0209973, y: 1}
+    m_SensorSize: {x: 2.1256983, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1115,7 +1115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316721418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: -6}
+  m_LocalPosition: {x: 0, y: 4.1, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1654042578}
@@ -1181,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328505137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2582637445627360957}
@@ -1204,15 +1204,18 @@ MonoBehaviour:
   mTransform: {fileID: 0}
   animator: {fileID: 0}
   rigidbody: {fileID: 0}
+  animHook: {fileID: 0}
+  isGrounded: 1
+  useRootMotion: 0
   vertical: 0
   horizontal: 0
   lockOn: 0
   delta: 0
+  rootMovement: {x: 0, y: 0, z: 0}
   mouseY: 0
   mouseX: 0
   moveAmount: 0
   rotateDirection: {x: 0, y: 0, z: 0}
-  isGrounded: 1
   camera: {fileID: 963194228}
   frontRayOffset: 0.5
   movementSpeed: 5
@@ -1462,7 +1465,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0209973, y: 1}
+    m_SensorSize: {x: 2.1256983, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1478,8 +1481,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654042576}
-  m_LocalRotation: {x: 0.052284427, y: -0.000000031980875, z: 0.0000000016743914,
-    w: 0.99863225}
+  m_LocalRotation: {x: 0.052284464, y: 1e-45, z: -0, w: 0.99863225}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2581,6 +2583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2582637445627360957}
   - component: {fileID: 2926371905442016264}
+  - component: {fileID: 2926371905442016265}
   m_Layer: 8
   m_Name: Far East Set
   m_TagString: Untagged
@@ -2607,6 +2610,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2926371905442016265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2926371905442016263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca48e441273f958408ead6f76a93d5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2998900011259945653
 Transform:
   m_ObjectHideFlags: 0

@@ -3,50 +3,50 @@
 namespace Arkayns.SL {
 
     public class InputManager : StateAction {
-
-        private PlayerStateManager states;
+        private PlayerStateManager m_states;
 
         // Trigger & Bumper
-        private bool RB, RT, LB, LT;
-        private bool isAttaking;
+        private bool m_RB, m_RT, m_LB, m_LT;
+        private bool m_isAttaking;
         // Inventory
-        private bool inventoryInput;
+        private bool m_inventoryInput;
         // Prompt
-        private bool BInput, YInput, XInput, AInput;
+        private bool m_BInput, m_YInput, m_XInput, m_AInput;
         // Dpad
-        private bool leftArrow, rightArrow, downArrow, upArrow;
+        private bool m_leftArrow, m_rightArrow, m_downArrow, m_upArrow;
 
         public InputManager (PlayerStateManager states) {
-            this.states = states;
+            m_states = states;
         } // Constructor InputManager
 
         public override bool Execute () {
             bool retVal = false;
+            m_isAttaking = false;
 
-            states.horizontal = Input.GetAxis ("Horizontal");
-            states.vertical = Input.GetAxis ("Vertical");
+            m_states.horizontal = Input.GetAxis ("Horizontal");
+            m_states.vertical = Input.GetAxis ("Vertical");
 
-            RB = Input.GetButton ("RB");
-            RT = Input.GetButton ("RT");
-            LB = Input.GetButton ("LB");
-            LT = Input.GetButton ("LT");
+            m_RB = Input.GetButton ("RB");
+            m_RT = Input.GetButton ("RT");
+            m_LB = Input.GetButton ("LB");
+            m_LT = Input.GetButton ("LT");
 
-            inventoryInput = Input.GetButton ("Inventory");
+            m_inventoryInput = Input.GetButton ("Inventory");
 
-            BInput = Input.GetButton ("B");
-            YInput = Input.GetButtonDown ("Y");
-            XInput = Input.GetButton ("X");
-            AInput = Input.GetButton ("A");
+            m_BInput = Input.GetButton ("B");
+            m_YInput = Input.GetButtonDown ("Y");
+            m_XInput = Input.GetButton ("X");
+            m_AInput = Input.GetButton ("A");
 
-            leftArrow = Input.GetButton ("Left");
-            rightArrow = Input.GetButton ("Right");
-            downArrow = Input.GetButton ("Down");
-            upArrow = Input.GetButton ("Up");
+            m_leftArrow = Input.GetButton ("Left");
+            m_rightArrow = Input.GetButton ("Right");
+            m_downArrow = Input.GetButton ("Down");
+            m_upArrow = Input.GetButton ("Up");
 
-            states.mouseX = Input.GetAxis ("Mouse X");
-            states.mouseY = Input.GetAxis ("Mouse Y");
+            m_states.mouseX = Input.GetAxis ("Mouse X");
+            m_states.mouseY = Input.GetAxis ("Mouse Y");
 
-            states.moveAmount = Mathf.Clamp01 (Mathf.Abs (states.horizontal) + Mathf.Abs (states.vertical));
+            m_states.moveAmount = Mathf.Clamp01 (Mathf.Abs (m_states.horizontal) + Mathf.Abs (m_states.vertical));
 
             retVal = HandleAttacking ();
 
@@ -54,21 +54,22 @@ namespace Arkayns.SL {
         } // Execute
 
         private bool HandleAttacking () {
-            if (RB || RT || LB || LT) {
-                //isAttaking = true;
+            if (m_RB || m_RT || m_LB || m_LT) {
+                m_isAttaking = true;
             }
 
-            if (YInput) {
-                isAttaking = false;
+            if (m_YInput) {
+                m_isAttaking = false;
             }
 
-            if (isAttaking) {
+            if (m_isAttaking) {
                 // Find the actual animation from the items
                 // play target animation
-                // stateManager.ChangeState (stateManager.attackStateID);
+                m_states.PlayTargetAnimation("Attack 1", true);
+                m_states.ChangeState(m_states.attackStateID);
             }
 
-            return isAttaking;
+            return m_isAttaking;
         } // HandleAttacking
 
  
