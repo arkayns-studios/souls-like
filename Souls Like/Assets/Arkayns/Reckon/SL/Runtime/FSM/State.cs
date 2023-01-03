@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 
-namespace Arkayns.SL {
+namespace Arkayns.Reckon.SL {
 
     public class State {
 
+        // -- Variables --
         private bool m_forceExit;
         private List<StateAction> m_fixedUpdateActions;
         private List<StateAction> m_updateActions;
@@ -13,32 +13,34 @@ namespace Arkayns.SL {
         public delegate void OnEnter();
         public OnEnter onEnter;
         
+        // -- Constructor --
         public State(List<StateAction> fixedUpdateActions, List<StateAction> updateActions, List<StateAction> lateUpdateActions) {
             this.m_fixedUpdateActions = fixedUpdateActions;
             this.m_updateActions = updateActions;
             this.m_lateUpdateActions = lateUpdateActions;
         } // Constructor State
 
+        // -- Methods --
         public void FixedTick () {
             ExecuteListOfActions (m_fixedUpdateActions);
-        } // FixedTick
+        } // FixedTick ()
 
         public void Tick () {
             ExecuteListOfActions (m_updateActions);
             m_forceExit = false;
-        } // Tick
+        } // Tick ()
 
         public void LateTick () {
             ExecuteListOfActions (m_lateUpdateActions);
-        } // LateTick
+        } // LateTick ()
 
         private void ExecuteListOfActions (List<StateAction> l) {
-            for (int i = 0; i < l.Count; i++) {
+            foreach (var t in l) {
                 if (m_forceExit) return;
-                m_forceExit = l [i].Execute ();
+                m_forceExit = t.Execute ();
             }
-        } // ExecuteListOfActions
+        } // ExecuteListOfActions ()
 
     } // Class State
 
-} // Namespace Arkayns SL
+} // Namespace Arkayns Reckon SL

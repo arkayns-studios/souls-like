@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Arkayns.SL {
+namespace Arkayns.Reckon.SL {
 
     public class PlayerStateManager : CharacterStateManager {
 
+        // -- Variables --
         [Header("Inputs")] 
         [Range(-1, 1)] public float mouseY;
         [Range(-1, 1)] public float mouseX;
@@ -27,10 +26,11 @@ namespace Arkayns.SL {
         [HideInInspector] public string locomotionID = "locomotion";
         [HideInInspector] public string attackStateID = "attackID";
 
+        // -- Methods --
         public override void Init() {
             base.Init();
 
-            State locomotion = new State(
+            var locomotion = new State(
                 // Fixed Update
                 new List<StateAction>() {
                     new MovePlayerCharacter(this)
@@ -45,7 +45,7 @@ namespace Arkayns.SL {
 
             locomotion.onEnter = DisableRoot;
             
-            State attackState = new State(
+            var attackState = new State(
                 // Fixed Update
                 new List<StateAction>() {
                     new InputManager(this),
@@ -66,31 +66,31 @@ namespace Arkayns.SL {
             ChangeState(locomotionID);
 
             ignoreForGroundCheck = ~(1 << 9 | 1 << 10);
-        } // Override Init
+        } // Init ()
 
         private void FixedUpdate() {
             delta = Time.fixedDeltaTime;
             base.FixedTick();
-        } // FixedUpdate
+        } // FixedUpdate ()
 
         private void Update() {
             delta = Time.deltaTime;
             base.Tick();
-        } // Update
+        } // Update ()
 
         private void LateUpdate() {
             base.LateTick();
-        } // LateUpdate
+        } // LateUpdate ()
 
         #region State Events
 
         private void DisableRoot() {
             useRootMotion = false;
-        } // DisableRoot
+        } // DisableRoot ()
 
         private void EnableRootMotion() {
             useRootMotion = true;
-        } // EnableRootMotion
+        } // EnableRootMotion ()
 
         #endregion
         

@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 
-namespace Arkayns.SL {
+namespace Arkayns.Reckon.SL {
     
     public class OnStateEnterBool : StateMachineBehaviour {
+        
+        // -- Variables --
         public string boolName;
         public bool status;
         public bool resetOnExit;
 
+        // -- Built-In Methods --
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             animator.SetBool(boolName, status);
-        } // Override OnStateEnter
+        } // OnStateEnter ()
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             if(resetOnExit) {
                 animator.SetBool(boolName, !status);
             }
-        } // Override OnStateExit
+        } // OnStateExit ()
 
     } // Class OnStateEnterBool
     
-} // Namespace Arkayns SL
+} // Namespace Arkayns Reckon SL
